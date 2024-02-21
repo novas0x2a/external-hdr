@@ -1,0 +1,13 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "cat-local",
+    srcs = ["cat.c"],
+    hdrs = ["cat.h"],
+)
+
+cc_library(
+    name = "cat-remote",
+    srcs = ["cat.c"],
+    hdrs = ["@external-hdr//other:cat.h"],
+)

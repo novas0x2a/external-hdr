@@ -1,0 +1,7 @@
+workspace(name = "external-hdr")
+
+new_local_repository(
+    name = "cat",
+    build_file = "//:BUILD.cat",
+    path = "cat",
+)

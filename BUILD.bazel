@@ -1,0 +1,11 @@
+cc_binary(
+    name = "dog-local",
+    srcs = ["dog.c"],
+    deps = ["@cat//:cat-local"],
+)
+
+cc_binary(
+    name = "dog-remote",
+    srcs = ["dog.c"],
+    deps = ["@cat//:cat-remote"],
+)
