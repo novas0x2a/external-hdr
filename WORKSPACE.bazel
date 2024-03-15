@@ -1,7 +1,22 @@
 workspace(name = "external-hdr")
 
+load("//:repositories.bzl", "external_hdr_dependencies")
+external_hdr_dependencies()
+
+load(":defs.bzl", "merge_repo")
+
+
 new_local_repository(
     name = "cat",
     build_file = "//:BUILD.cat",
     path = "cat",
+)
+
+merge_repo(
+    name ="meow",
+    srcs = {
+        "@cat": "cat",
+        "@external-hdr": ".",
+    },
+    build_file = "//:BUILD.remote.bazel",
 )
